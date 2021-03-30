@@ -44,6 +44,11 @@ jobs:
           # Optional: Skip internal call to `git fetch`
           skip_fetch: true
 
+  restart_bot:
+    name: Restart Bot
+    uses: ubuntu-latest
+    
+    steps:
       - name: Restart Bot
         uses: peter-evans/repository-dispatch@v1
         with:
