@@ -46,6 +46,7 @@ jobs:
 
   restart_bot:
     name: Restart Bot
+    needs: run_bot
     runs-on: ubuntu-latest
     
     steps:
