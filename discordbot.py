@@ -81,7 +81,7 @@ try:
             await asyncio.sleep(1)
             start += 1
 
-            if start - originalStart >= 0:
+            if start - originalStart >= 10:
                 try:
                     await client.logout()
                     await client.close()
