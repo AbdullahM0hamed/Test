@@ -81,7 +81,7 @@ try:
             await asyncio.sleep(1)
             start += 1
 
-            if start - originalStart >= 10:
+            if start - originalStart >= 1800000:
                 try:
                     await client.logout()
                     await client.close()
@@ -141,7 +141,7 @@ try:
     # Ping utility
     @client.command()
     async def exit(ctx):
-        if str(ctx.author.id) == "674710789138939916":
+        if str(ctx.author.id) == "467745715632734208":
             try:
                 await client.logout()
                 await client.close()
