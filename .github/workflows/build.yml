@@ -23,9 +23,7 @@ jobs:
         run: pip3 install -r requirements.txt
 
       - name: Run Bot
-        run: |
-          trap 'exit 0' INT
-          python discordbot.py
+        run: python discordbot.py
         env:
           TOKEN: ${{ secrets.BOT_TOKEN }}
 
@@ -44,14 +42,9 @@ jobs:
           # Optional: Skip internal call to `git fetch`
           skip_fetch: true
 
-  restart_bot:
-    name: Restart Bot
-    needs: run_bot
-    runs-on: ubuntu-latest
-    
-    steps:
       - name: Restart Bot
         uses: peter-evans/repository-dispatch@v1
+        if: always()
         with:
           token: ${{ secrets.TEST_TOKEN }}
           event-type: restart
