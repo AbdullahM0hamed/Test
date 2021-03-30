@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Bot
         run: |
-          set +e
+          trap 'exit 0' INT
           python discordbot.py
         env:
           TOKEN: ${{ secrets.BOT_TOKEN }}
